@@ -1,0 +1,62 @@
+% A pagestyle consists of 4 main elements:
+% 1. recto (odd) header
+% 2. recto (odd) footer
+% 3. verso (even) header
+% 4. verso (even) footer
+
+% Each element is partitioned into a left, right, and center
+% portion (slots).
+
+% \pagestyle{<style>} sets the <style> globally.
+% \thispagestyle{<style>} sets the <style> for the current page,
+% overridding the global style.
+
+% The builtin pagestyles are:empty, plain, headings, myheadings,
+% simple, ruled, Ruled, companion, book, chapter, cleared, part,
+% title, and titlingpage.
+
+% The "headings" page style has a header consisting of a folio on
+% the outer edge (left or right) and a slanted uppercase title in
+% the center.  It has no footer.
+
+% The casing of the title in the "headings" style can be
+% controlled using the \nouppercaseheads and \uppercaseheads
+% commands. 
+
+% Each sectioning command (e.g. \chapter) will call a
+% corresponding macro "marker" (e.g. \chaptermark) with pertinent
+% information (e.g. the title).
+
+% \markboth{<left>}{<right>} sets the values of 2 markers to
+% <left> and <right> respectively, at the point where it is
+% called. The individual values of these markes can then be
+% obtained using \leftmark and \rightmark respectively.
+
+% \thepage = the page number (folio)
+
+\newcommand*{\pgfolio}{%
+  \fontspec{Miller Display} \thepage}
+\newcommand*{\booktitle}{%
+  \small \fontspec{\millerdsc} THE SPIRIT OF THE AGE.}
+
+\makepagestyle{spirit}
+\makeevenhead{spirit}{\pgfolio}{\booktitle}{}
+\makeoddhead{spirit}{}{\small \fontspec{\millerdsc} \leftmark.}{\pgfolio}
+\makepsmarks{spirit}{% based on headings
+\createmark{part}{left}{shownumber}{\partname\ }{. \ }
+\createmark{chapter}{left}{shownumber}{\@chapapp\ }{. \ }
+\createplainmark{toc}{both}{\contentsname}
+\createplainmark{lof}{both}{\listfigurename}
+\createplainmark{lot}{both}{\listtablename}
+\createplainmark{bib}{both}{\bibname}
+\createplainmark{index}{both}{\indexname}
+\createplainmark{glossary}{both}{\glossaryname}}
+
+% Show the book title in the header
+% on the first page of each new chapter.
+\makepagestyle{chapterspirit}
+\makeoddhead{chapterspirit}{}{\booktitle}{\pgfolio}
+
+% turn off sectional numbering
+\setsecnumdepth{none}
+\pagestyle{spirit}

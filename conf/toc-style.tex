@@ -1,0 +1,58 @@
+% ToC := Table of Contents
+% LoF := List of Figures
+% LoT := List of Tables
+
+% tocdepth = the minimum sectional level allowed in the ToC
+% \setcounter, \settocdepth = change the tocdepth value
+
+% <kind> := sectional kind (e.g. book, part, chapter...)
+% Each <kind> has a particular typesetting command:
+% \l@kind{<title>}{<page>},
+% that typesets a ToC entry.
+
+% 3 internal commands are used in this command:
+% \@pnumwidth = 1.55em 
+% \@tocrmarg = 2.55em
+% \@dotsep = 4.5
+
+% NOTE: dotted leaders are not available for Part & Chapter
+
+% called before the title is printed
+% defaults to \chapterheadstart
+\renewcommand{\tocheadstart}{}
+
+% prints the ToC title (CONTENTS.)
+\renewcommand{\printtoctitle}[1]{
+  \centering
+  \LARGE
+  \fontspec{\millerdsc} #1.}
+
+% called after the title is printed.
+\renewcommand{\aftertoctitle}{%
+  \par
+  \drop{2}
+  \centering \pcdash{4} \par
+  \drop{2}}
+  
+% \cftdot = specifies "dot" to use for dotted leader line
+% \cftdotsep = specifies the width between dots
+% \cftnodots = specifies max width between dots
+% \setpnumwidth = size of fixed with box containing pg number
+% \setrmargin = the size of the right hand margin
+% \cftparskip
+% \cftchapterbreak = how/when to page break toc entries
+
+% the vertical space before an entry
+\let\cftbcs\cftbeforechapterskip
+\setlength{\cftbeforechapterskip}{0.8\cftbcs}
+
+% \cftchapterindent = length of left margin
+
+% style the entry title
+\renewcommand{\cftchapterfont}{\fontspec{\millerdsc}}
+
+% \cftchaptername = first text printed for entry
+% \cftchapternumberline = typeset the chapter number
+
+% make dotted leader line between title and pg number
+\renewcommand{\cftchapterleader}{\normalfont\cftdotfill{\cftsectiondotsep}}

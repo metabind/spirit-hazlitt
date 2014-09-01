@@ -1,0 +1,43 @@
+%% REQUIRES fontspec PACKAGE
+%% Use XeLaTeX or LuaTeX
+
+% Type Families of the Era (Slab Serif)
+% - ITC Cheltenham
+% - Clarendon
+% - Caslon
+% - Baskerville
+% - Walbaum
+% - Belizio
+% - Ionic, Excelsior
+% - LT Centennial
+
+% MAIN FONT-SELECTING COMMANDS:
+% \fontspec{<font name>}[<font features>]
+% \setmainfont{<font name>}[<font features>]
+% \setsansfont{<font name>}[<font features>]
+% \setmonofont{<font name>}[<font features>]
+% \newfontfamily<cmd>{<font name>}[<font features>]
+
+% font family aliases
+\newcommand*{\schola}{TeX Gyre Schola}
+\newcommand*{\miller}{Miller Text}
+\newcommand*{\millerdsc}{Miller Display SC}
+
+% color aliases
+\definecolor{AgedParchment}{rgb}{0.98,0.98,0.9}
+\definecolor{Gray20}{rgb}{0.2,0.2,0.2}
+
+% use eso-pic for an image of parchment
+%\pagecolor{AgedParchment}
+
+\defaultfontfeatures{
+  %Color         =Gray20,
+  Ligatures      = TeX, 
+  BoldFont       = Miller Text Bold,
+  ItalicFont     = Miller Text Italic,
+  BoldItalicFont = Miller Text Bold Italic,
+  SmallCapsFont  = Miller Text SC
+}
+
+\setmainfont{\miller}
+\setmonofont{Consolas}

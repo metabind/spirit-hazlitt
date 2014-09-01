@@ -1,0 +1,116 @@
+%%% Chapter Heading Style %%%
+%% See Section 6.5 of The Memoir Manual for more info
+
+% The heading represents the content and style used to introduce a
+% new sectional division, e.g. a chapter.
+
+%% predefined chapter heading styles:
+% default
+% section
+% hangnum
+% companion
+% article
+% reparticle
+
+% Chapters *always* start on a new page.
+% Which page, recto or verso, do chapters start on?
+% For onesided paper, openany (the next page).
+% For twosided paper, there are 3 options:
+% 1. openright: the next recto.
+% 2. openleft: the next verso.
+% 3. openany: the next page.
+% Because we used the openright option, our chapters will begin
+% on the next recto by default.
+% However, we can modify this behavior by calling the respective
+% declarations: \openright,\openleft,\openany.
+
+% Okay, so what happens when a chapter heading is created?
+% A number of chapter heading primitives are run in order:
+
+%% COMMAND SUMMARY %%
+%-----------------------------------------------------------------
+% \clearforchapter
+% \chapterheadstart
+% \printchaptername, \chapternamenum, \printchapternum
+% \printchapternoname
+% \afterchapternum
+% \printchaptertitle
+% \memendofchapterhook
+
+%% VARIABLE SUMMARY %%
+%\beforechapskip
+%\midchapskip
+%\afterchapskip
+%\chapnamefont
+%\chapnumfont
+%\chaptitlefont
+
+
+%-----------------------------------------------------------------
+% MAKE CHAPTER HEADING BEGIN
+%*****************************************************************
+
+% Henry Colburn 1825 Chapter Heading Style 
+% for The Spirit of the Age by Hazlitt
+
+% no chapter name or number
+% solitary chapter title centered vertically on recto in caps
+% no page header or footer
+% blank verso, no page header or footer
+% chapter title centered 3 parts down on recto
+% followed by a ~0.5in rule
+% followed by indented paragraph
+% page header consists of book title centered and page number
+% no footer
+
+% NOTE: \@chapapp stores the chapter name
+\makechapterstyle{colburn}{
+% 1. Used to pick new page.
+% \def\clearforchapter{\cleartorecto}
+% 2. Called before printing chapter title and number. Inserts
+%    \beforechapskip (50pts) by default.
+\def\chapterheadstart{\vspace*{0.2\textheight}}
+% 3. Printing "CHAPTER" name and "#N" number
+% 3a. Prints the name using \chapnamefont.
+\def\printchaptername{\chapnamefont \@chapapp}
+% 3b. Prints the text between name and number.
+\def\chapternamenum{\space}
+% 3c. Prints the number using \chapnumfont.
+\def\printchapternum{\chapnumfont \thechapter}
+% 3*. Called if no name or num is used.
+\def\printchapternonum{}
+% 4. Called after printing number. Inserts \midchapskip (20pt) by
+%    default.
+\def\afterchapternum{\par\nobreak\vskip \midchapskip}
+% 5. Prints the <title> using \chaptitlefont.
+\renewcommand*{\chaptitlefont}
+    {\addfontfeature{WordSpace=2}\normalfont\Huge\bfseries\scshape}
+\def\printchaptertitle##1{
+    \fontspec{\millerdsc}
+    \centering
+    \chaptitlefont
+    ##1.
+}
+% 6. Called after printing title.  Inserts \afterchapskip (40pt)
+%    by default.
+%\def\afterchaptertitle{\par\nobreak\vskip \afterchapskip}
+\def\afterchaptertitle{%
+    \par 
+    \drop{1}
+    \rule{0.25\textwidth}{0.4pt}
+    \par
+    \drop{2}
+}
+% 7. Not set by default, but runs last.
+\def\memendofchapterhook{\thispagestyle{chapterspirit}}
+}
+
+%*****************************************************************
+% MAKE CHAPTER HEADING END
+
+% The first paragraph of a chapter can be styled using:
+\indentafterchapter
+% \noindentafterchapter (default)
+
+\chapterstyle{colburn}
+

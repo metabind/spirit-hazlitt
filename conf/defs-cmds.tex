@@ -1,0 +1,59 @@
+% common definitions and commands
+
+% create vertical space [n-2,n+5] picas long
+\newcommand*{\drop}[1]{\vspace*{#1pc plus 5pt minus 2pt}}
+
+% remove footnote rule
+\let\oldfootnoterule\footnoterule
+\renewcommand*{\footnoterule}{}
+% lighten footnote font
+% \renewcommand*{\foottextfont}{
+%     \addfontfeatures{Color=Gray20}
+%     \footnotesize}
+
+% modify length between poetry stanzas
+\setlength{\stanzaskip}{0.5\baselineskip}
+
+% create a dash n picas in length
+\newcommand*{\pcdash}[1]{\rule[0.25\baselineskip]{#1pc}{0.75pt}}
+
+% create simple horizontal bullet rule
+\newcommand{\bulletrule}{
+\nopagebreak{
+\par
+\drop{1}
+\centering
+{\large
+    \hfill
+    $\bullet$
+    \hfill
+    $\bullet$
+    \hfill
+    $\bullet$
+    \hfill
+    $\bullet$
+    \hfill
+    $\bullet$
+    \hfill
+    $\bullet$
+    \hfill
+}
+\par
+\drop{1}
+}
+}
+
+\renewcommand\ellipsisgap{0.5em}
+
+% typeset source attributions for verses
+\newcommand{\attrib}[1]{%
+\nopagebreak{\hspace{10\vgap}\footnotesize \textemdash
+    #1}\par\drop{1}}
+
+\renewcommand*{\leadpagetoclevel}{part}
+
+% NOTE: currently anything under 1.5pts is acceptable
+% help fix overfull hbox issues
+% \fixspacing{<space>}{<text>}
+\newcommand{\fixspacing}[2]{{\addfontfeature{LetterSpace=#1}#2}}
+    

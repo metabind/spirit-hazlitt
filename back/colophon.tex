@@ -1,0 +1,39 @@
+%% COLOPHON
+%% LAST PAGE
+
+\cleartoverso
+\pagestyle{empty}
+
+% center colophon on physical page (i.e. not textblock)
+\newlength{\colophon}
+\calccentering{\colophon}
+\begin{adjustwidth*}{\colophon}{\colophon}
+\fontspec{CMU Sans Serif}
+
+\begin{flushleft}
+\setlength{\parskip}{1.5\baselineskip}
+{\large Colophon}
+
+The original source for this book was created using AUC\TeX{} and
+\XeTeX{} (\texttt{3.14159265-2.6-0.99991}) along with the Memoir
+class, provided by the \TeX Live system, version
+\texttt{2014.34260-1}, as packaged by Arch Linux
+(\texttt{3.16.1-1-ARCH}), and compiled to a pdf on an
+\texttt{x86\_64} machine.
+
+The primary fonts used in this book are Miller Text and Miller
+Display, designed by Matthew Carter.  Computer Modern and Consolas
+were used for the colophon.
+
+Book Data: There are 206 pages, 82665 words, and 32 footnotes. 
+
+Book Designer: Adrian Patino
+(\href{mailto:adrian@metabind.com}{\texttt{adrian@metabind.com}}).
+
+Book Version: \texttt{0.1}
+
+The source code for this book can be found on
+\href{https://github.com/metabind/spirit-hazlitt}{GitHub}.  Any
+suggestions, corrections, or improvements are highly encouraged.
+\end{flushleft}
+\end{adjustwidth*}
