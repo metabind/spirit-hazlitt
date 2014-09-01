@@ -4,7 +4,7 @@ by William Hazlitt
 ------------------
 
 A faithful facsimile of the 1st/2nd edition, with a few minor
-adjustments, using the LaTeX documentation preparation system.
+adjustments, using the LaTeX document preparation system.
 
 The book is currently out of print and in the public domain.
 
