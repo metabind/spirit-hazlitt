@@ -13,6 +13,8 @@ For more information, please visit the associated
 may also view page images from the original books in the images
 folder.
 
+* NOTE: Requires the [Miller](https://store.typenetwork.com/foundry/cartercone/fonts/miller-text/roman) typeface
+
 ### Build Instructions: ###
     $ git clone https://github.com/metabind/spirit-hazlitt.git
     $ cd spirit-hazlitt/
