@@ -1,14 +1,14 @@
 %% COLOPHON
 %% LAST PAGE
 
-\cleartoverso
+\cleartoverso{}
 \pagestyle{empty}
 
 % center colophon on physical page (i.e. not textblock)
 \newlength{\colophon}
 \calccentering{\colophon}
 \begin{adjustwidth*}{\colophon}{\colophon}
-\fontspec{CMU Sans Serif}
+\fontspec{cmunss.otf}
 
 \begin{flushleft}
 \setlength{\parskip}{1.5\baselineskip}
@@ -16,7 +16,7 @@
 
 The original source for this book was created using AUC\TeX\ and
 \XeLaTeX\ (\texttt{3.14159265-2.6-0.99991}) along with the Memoir
-class, provided by the \TeX Live system, version
+class, provided by the \TeX{} Live system, version
 \texttt{2014.34260-1}, as packaged by Arch Linux
 (\texttt{3.16.1-1-ARCH}), and compiled to a pdf on an
 \texttt{x86\_64} machine, \today\ at \printtime*.

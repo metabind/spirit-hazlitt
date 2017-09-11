@@ -19,7 +19,7 @@
 % \newfontfamily<cmd>{<font name>}[<font features>]
 
 % font family aliases
-\newcommand*{\schola}{TeX Gyre Schola}
+\newcommand*{\schola}{texgyreschola-regular.otf}
 \newcommand*{\miller}{Miller Text}
 \newcommand*{\millerdsc}{Miller Display SC}
 
@@ -30,14 +30,11 @@
 % use eso-pic for an image of parchment
 %\pagecolor{AgedParchment}
 
-\defaultfontfeatures{
-  %Color         =Gray20,
-  Ligatures      = TeX, 
+\setmainfont{Miller Text}[
   BoldFont       = Miller Text Bold,
   ItalicFont     = Miller Text Italic,
   BoldItalicFont = Miller Text Bold Italic,
-  SmallCapsFont  = Miller Text SC
-}
+  SmallCapsFont  = Miller Text SC,
+]
 
-\setmainfont{\miller}
 \setmonofont{Fira Code}

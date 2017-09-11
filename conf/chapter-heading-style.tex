@@ -76,19 +76,19 @@
 % 3b. Prints the text between name and number.
 \def\chapternamenum{\space}
 % 3c. Prints the number using \chapnumfont.
-\def\printchapternum{\chapnumfont \thechapter}
+\def\printchapternum{\chapnumfont{} \thechapter}
 % 3*. Called if no name or num is used.
 \def\printchapternonum{}
 % 4. Called after printing number. Inserts \midchapskip (20pt) by
 %    default.
-\def\afterchapternum{\par\nobreak\vskip \midchapskip}
+\def\afterchapternum{\par\nobreak\vspace{} \midchapskip}
 % 5. Prints the <title> using \chaptitlefont.
 \renewcommand*{\chaptitlefont}
-    {\addfontfeature{WordSpace=2}\normalfont\Huge\bfseries\scshape}
+    {\normalfont\Huge\bfseries\scshape}
 \def\printchaptertitle##1{
-    \fontspec{\millerdsc}
+    \fontspec{\millerdsc}[WordSpace=2]
     \centering
-    \chaptitlefont
+    \chaptitlefont{}
     ##1.
 }
 % 6. Called after printing title.  Inserts \afterchapskip (40pt)
@@ -109,7 +109,7 @@
 % MAKE CHAPTER HEADING END
 
 % The first paragraph of a chapter can be styled using:
-\indentafterchapter
+\indentafterchapter{}
 % \noindentafterchapter (default)
 
 \chapterstyle{colburn}
